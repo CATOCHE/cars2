@@ -16,8 +16,9 @@ The cars api alllows the following HTTP verbs:
 
 ## Cars
 
-## Create a car 
+## Create a car
 Create a car via a `POST` to the '/cars' route passing a car JSON object in the request body.
+
 ```
 POST /cars
 
@@ -29,28 +30,31 @@ POST /cars
   "oemId": "oem_general-motors",
   "type": "car"
 }
-```````
-A successfully created car will result in a '201 -Created' response and the car document will be return in the respnse body. The response body will include an '_id' and '_rev' properties 
+```
+A successfully created car will result in a '201 -Created' response and the car document will be return in the response body. The response body will include an `_id` and `_rev` properties
 
+```
 {
   "_id": "car_corvette",
-  "_rev": "1-147586933"
+  "_rev": "1-147586933",
   "make": "general motors",
   "model": "corvette",
   "model year": 2018,
   "color": "yellow",
   "engine size": "6.2L",
-  "type": car
+  "type": "car"
 }
-
+```
 
 ## Get a car
 
-Retrieves a single car from the collection of cars using a 'GET' to the '/dogs/id:' route.
-```
-GET /dogs/car_corvette
+Retrieves a single car from the collection of cars using a 'GET' to the '/cars/id:' route.
 
-A successful response will result in a '200-ok response code and the car will be returned in the response body
+```
+GET /cars/car_corvette
+```
+A successful response will result in a `200-ok` response code and the car will be returned in the response body
+
 ```
 {
   "_id": "car_corvette",
@@ -62,11 +66,29 @@ A successful response will result in a '200-ok response code and the car will be
   "engine size": "6.2L",
   "type": car
 }
+
+```
+## Delete a car
+
+Delete a car via a `DELETE` to the `\cars\:id` route.
+
+```
+DELETE /cars/:car_corvette
 ```
 
+A successful response would result in a `200 - ok` . The response body will contain the following:
+
+```
+{
+  "ok": true
+  "id": "car_corvette"
+  "rev": "1-147586933"
+}
+```
 ## OEM
-## Create a OEM 
+## Create a OEM
 Create an OEM via a `POST` to the '/oems' route passing a car JSON object in the request body.
+
 ```
 POST /oems
 
@@ -77,10 +99,10 @@ POST /oems
   "salesVolume": 9,958,000,
   "models": ["Volt", "Equinox", "Corvette", "Escalade", "Camaro"],
   "hqCity": "Detroit",
-  "type: "oem" 
+  "type: "oem"
 }
 ```
-A successfully created oem will result in a '201 -Created' response and the oem document will be returned in the respnse body. The response body will include an '_id' and '_rev' properties 
+A successfully created oem will result in a '201 -Created' response and the oem document will be returned in the respnse body. The response body will include an `_id` and `_rev` properties
 ```
 {
   "_id": "oem_general-motors"
@@ -91,9 +113,28 @@ A successfully created oem will result in a '201 -Created' response and the oem 
   "Sales volume": 9,958,000,
   "models": ["Volt", "Equinox", "Corvette", "Escalade", "Camero"],
   "headquarters": "Detroit, MI",
-  "type: "oem" 
+  "type: "oem"
 }
 ```
+## Retrieve an OEM
+Description....
+
+```
+GET /oems/oem_general-motors
+```
+A successful response will result in a `200-ok` response code and the OEM will be returned in the response body
 
 
-
+```
+{
+  "_id": "oem_general-motors"
+  "_rev": "1-aajdj3387"
+  "name": "General Motors",
+  "country of origin": "USA",
+  "CEO": "Mary Barra",
+  "Sales volume": 9,958,000,
+  "models": ["Volt", "Equinox", "Corvette", "Escalade", "Camero"],
+  "headquarters": "Detroit, MI",
+  "type: "oem"
+}
+```
