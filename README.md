@@ -5,7 +5,7 @@ This API will track cars and manufacturer information via '/cars' and '/car-oems
 ## Getting Started
 
 ## HTTP Verbs
-The cars api alllows the following HTTP verbs:
+The cars api allows the following HTTP verbs:
 
 - `GET`
 - `POST`- create
@@ -39,9 +39,9 @@ A successfully created car will result in a '201 -Created' response and the car 
   "_rev": "1-147586933",
   "make": "general motors",
   "model": "corvette",
-  "model year": 2018,
+  "modelYear": 2018,
   "color": "yellow",
-  "engine size": "6.2L",
+  "engineSize": "6.2L",
   "type": "car"
 }
 ```
@@ -85,6 +85,30 @@ A successful response would result in a `200 - ok` . The response body will cont
   "rev": "1-147586933"
 }
 ```
+
+## Update a cars
+Updates a car within the collection of cars via to the '/cars/:id' route. Provides a representation of a car in the request body.
+
+>Tip: Be sure to provide the most recent `_rev` value in the request body. Otherwise, you will recieve an `409- Conflict` error.
+
+All required fields include `_id`, `_rev`, `make`, `model`, `modelYear`, `color`, `engineSize`, `type`
+
+```
+PUT /cars/car_corvette
+
+```
+{
+  "_id": "car_corvette",
+  "_rev": "1-147586933"
+  "make": "general motors",
+  "model": "corvette",
+  "modelYear": 2018,
+  "color": "yellow",
+  "engineSize": "6.2L",
+  "type": "car"
+}
+```
+
 ## OEM
 ## Create a OEM
 Create an OEM via a `POST` to the '/oems' route passing a car JSON object in the request body.
@@ -136,5 +160,23 @@ A successful response will result in a `200-ok` response code and the OEM will b
   "models": ["Volt", "Equinox", "Corvette", "Escalade", "Camero"],
   "headquarters": "Detroit, MI",
   "type: "oem"
+}
+```
+
+## Delete an OEM
+
+Delete a car via a `DELETE` to the `\oem\:id` route.
+
+```
+DELETE /oems/:oem_general-motors
+```
+
+A successful response would result in a `200 - ok` . The response body will contain the following:
+
+```
+{
+  "ok": true
+  "id": "oem_general-motors"
+  "rev": "1-147586933"
 }
 ```
