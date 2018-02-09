@@ -4,7 +4,8 @@
   "description": "This API will track cars and manufacturer information via `/cars` and `/oems` (Orignal Equipment Manufacturers) endpoints. It is a RESTful HTTP based api using JSON to rep. cars and oems.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm api.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "dotenv": "^5.0.0",
     "express": "^4.16.2",
     "node": "^9.5.0",
+    "node-http-error": "^2.0.0",
     "pouchdb-adapter-http": "^6.4.3",
     "pouchdb-core": "^6.4.3",
     "pouchdb-find": "^6.4.3",
