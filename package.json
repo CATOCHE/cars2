@@ -1,0 +1,30 @@
+{
+  "name": "cars",
+  "version": "1.0.0",
+  "description": "This API will track cars and manufacturer information via `/cars` and `/oems` (Orignal Equipment Manufacturers) endpoints. It is a RESTful HTTP based api using JSON to rep. cars and oems.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tnelson2016/cars.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tnelson2016/cars/issues"
+  },
+  "homepage": "https://github.com/tnelson2016/cars#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "node": "^9.5.0",
+    "pouchdb-adapter-http": "^6.4.3",
+    "pouchdb-core": "^6.4.3",
+    "pouchdb-find": "^6.4.3",
+    "slugify": "^1.2.9"
+  }
+}
