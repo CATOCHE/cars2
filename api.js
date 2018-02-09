@@ -4,13 +4,13 @@ const express = require('express')
 const app = express()
 const HTTPError = require('node-http-error')
 const port = process.env.PORT
-const {getCar} = require('./dal')
+const {getCar, getOEM} = require('./dal')
 
 app.get('/', (req,res)=>{
   res.send('Howdy!')
 })
 
-app.get('/cars/:id', (res,req, next)=>{
+app.get('/cars/:id', (req, res, next)=>{
   //res.send(`you askes for car: ${req.parm.id}`)
   getCar(req.params.id, function(err, car){
     if (err){
