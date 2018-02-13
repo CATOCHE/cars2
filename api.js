@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 const HTTPError = require('node-http-error')
 const port = process.env.PORT
-const {getCar, getOEM, getAllDocs} = require('./dal')
+const {getCar, getOEM, getAllDocs, allDocs} = require('./dal')
 const {map} = require('ramda')
 
 app.get('/', (req,res)=>{
@@ -32,6 +32,14 @@ app.get('/oems/:id', (req,res,next)=>{
     res.send(oem)
   })
 })
+
+app.get('/cars', (req, res, next)=>{
+  const options = {include_docs : true}
+  allDocs(options)
+  .then(docs => res.send(docs))
+  .catch(err=>errNext)
+})
+
 
 app.get('/test-cars/', (req,res,next)=>{
   getAllDocs({include_docs:true}, function(err, allDocsResult){
