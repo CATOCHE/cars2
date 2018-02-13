@@ -96,7 +96,6 @@ All required fields include `_id`, `_rev`, `make`, `model`, `modelYear`, `color`
 ```
 PUT /cars/car_corvette
 
-```
 {
   "_id": "car_corvette",
   "_rev": "1-147586933"
@@ -121,7 +120,7 @@ POST /oems
   "country": "USA",
   "CEO": "Mary Barra",
   "salesVolume": 9,958,000,
-  "models": ["Volt", "Equinox", "Corvette", "Escalade", "Camaro"],
+  "employees": 209,000,
   "hqCity": "Detroit",
   "type: "oem"
 }
@@ -135,7 +134,7 @@ A successfully created oem will result in a '201 -Created' response and the oem 
   "country of origin": "USA",
   "CEO": "Mary Barra",
   "Sales volume": 9,958,000,
-  "models": ["Volt", "Equinox", "Corvette", "Escalade", "Camero"],
+  "employees": 209,000,
   "headquarters": "Detroit, MI",
   "type: "oem"
 }
@@ -157,7 +156,7 @@ A successful response will result in a `200-ok` response code and the OEM will b
   "country of origin": "USA",
   "CEO": "Mary Barra",
   "Sales volume": 9,958,000,
-  "models": ["Volt", "Equinox", "Corvette", "Escalade", "Camero"],
+  "employees": 209,000,
   "headquarters": "Detroit, MI",
   "type: "oem"
 }
